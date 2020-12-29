@@ -1,0 +1,17 @@
+Linux Code:
+
+ ***ALS produces recomendation which is under spark directory copy it under home directory****
+-cp /usr/lib/spark/examples/src/main/python/ml/als_example.py ./
+
+*** peek into the code****
+$ ls als_example.py
+$ nano als_example.py
+**create a directory where hdfs files is shared across different directories**
+
+$ hadoop fs -mkdir -p/user/hadoop/data/mllib/als
+**copy the data****
+
+$ hadoop fs -copyFromLocal /usr/lib/spark/data/mllib/als/sample_movielens_ratings.txt /user/hadoop/data/mllib/als/sample_movielens_ratings.txt
+
+*** run the spark code on master node**
+$ spark-submit als_example.py
